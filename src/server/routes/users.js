@@ -15,10 +15,10 @@ router.route('/')
     const user = createUserObjectFromSession(req.session.user);
     reviews.getByUserId(user.id)
       .then((reviews) => {
-        res.render('user', { user, reviews });
+        res.render('user', { user, reviews, loggedIn: req.isLoggedIn });
       })
   })
-  .post(urlEncodedParser, validateSignUpForm, (req, res) => {
+  .post(urlEncodedParser, validateSignUpForm, isLoggedIn, (req, res) => {
     const newUser = req.body;
     let userToDisplay;
 
@@ -29,7 +29,7 @@ router.route('/')
         return reviews.getByUserId(user.id);
       })
       .then((reviews) => {
-        res.render('user', { user: userToDisplay, reviews});
+        res.render('user', { user: userToDisplay, reviews, loggedIn: req.isLoggedIn});
       })
       .catch((error) => {
         console.log('An error occured while creating new user:', error);
@@ -38,7 +38,7 @@ router.route('/')
   })
 
 router.get('/:userID', (req, res) => {
-
+  res.send('yup, this is the user/:id route');
 })
 
 module.exports = router;
