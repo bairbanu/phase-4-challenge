@@ -105,7 +105,7 @@ Routing:
 Users can:
 
 - [x] __20:__ Sign up for an account with name, email, and password.
-- [x] __20:__ Be redirected to their profile page (e.g. `/users/<USER ID>`) after signing up.
+- [ ] __20:__ Be redirected to their profile page (e.g. `/users/<USER ID>`) after signing up.
 
 Users CANNOT:
 
@@ -131,7 +131,7 @@ Routing:
 Users can:
 
 - [x] __20:__ Sign in to an existing account with an email address and password.
-- [x] __20:__ Be redirected to their profile page (e.g. `/users/<USER ID>`) after signing in.
+- [ ] __20:__ Be redirected to their profile page (e.g. `/users/<USER ID>`) after signing in.
 
 Users CANNOT:
 
@@ -168,8 +168,8 @@ Routing:
 
 Users can:
 
-- [ ] __20:__ View their name, email, and join date.
-- [ ] __20:__ View only their submitted reviews sorted by newest first.
+- [x] __20:__ View their name, email, and join date.
+- [x] __20:__ View only their submitted reviews sorted by newest first.
 - [ ] __20:__ View "trash can" delete icons only next to reviews submitted by users.
 - [ ] __20:__ View a pop-up with a Cancel button, a Confirm button, and a message that reads, "Are you sure you want to delete this review?" after clicking the delete icon next to a review.
 - [ ] __20:__ Have the pop-up dismissed after clicking Cancel.
@@ -192,8 +192,8 @@ Routing:
 
 Users can:
 
-- [ ] __20:__ View the name of the album on the album page.
-- [ ] __20:__ View all reviews for the album on album page sorted by newest first.
+- [x] __20:__ View the name of the album on the album page.
+- [x] __20:__ View all reviews for the album on album page sorted by newest first.
 - [ ] __20:__ View "trash can" delete icons next to reviews the user can delete.
 - [ ] __20:__ View a pop-up with a Cancel button, a Confirm button, and a message that reads, "Are you sure you want to delete this review?" after clicking the trash can icon next to a review.
 - [ ] __20:__ Have the pop-up dismissed after clicking Cancel.
