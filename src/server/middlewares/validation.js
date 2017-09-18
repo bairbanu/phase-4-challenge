@@ -15,11 +15,20 @@ function validateSignInForm(req, res, next) {
 }
 
 function isLoggedIn(req, res, next) {
-  // check params for signout route logging out
-  // check session for a user object 
+  if (!req.query && !req.session.user) {
+    req.isLoggedIn = false;
+  }
+  else if (req.query.isLoggedIn === 'false') {
+    req.isLoggedIn = false;
+  }
+  else if (req.session.user) {
+    req.isLoggedIn = true;
+  }
+  next();
 }
 
 module.exports = {
   validateSignUpForm,
-  validateSignInForm
+  validateSignInForm,
+  isLoggedIn
 }
