@@ -9,6 +9,10 @@ function encryptPassword(password) {
   return bcrypt.hash(password, saltRounds);
 }
 
+function comparePassword(plainPassword, hash) {
+  return bcrypt.compare(plainPassword, hash);
+}
+
 function loginUser(user, req) {
   req.session.user = user;
 }
@@ -16,5 +20,6 @@ function loginUser(user, req) {
 module.exports = {
   isEmpty,
   encryptPassword,
-  loginUser
+  loginUser,
+  comparePassword
 }

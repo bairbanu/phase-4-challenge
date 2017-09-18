@@ -9,5 +9,13 @@ module.exports = (err, req, res, next) => {
       res.render('sign-up', { error: 'empty sign-up field' });
       break;
 
+    case 'empty sign-in field':
+      res.render('sign-in', { error: 'empty sign-in field' });
+      break;
+
+    case 'incorrect email and/or password':
+      res.render('sign-in', { error: 'incorrect email and/or password' });
+      break;
+
   }
 };

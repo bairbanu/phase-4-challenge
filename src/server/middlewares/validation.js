@@ -7,6 +7,14 @@ function validateSignUpForm(req, res, next) {
   else next();
 }
 
+function validateSignInForm(req, res, next) {
+  const { email, password } = req.body;
+
+  if ( isEmpty(email, password) ) next(new Error('empty sign-in field'));
+  else next();
+}
+
 module.exports = {
-  validateSignUpForm
+  validateSignUpForm,
+  validateSignInForm
 }
