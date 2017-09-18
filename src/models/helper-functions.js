@@ -17,9 +17,14 @@ function loginUser(user, req) {
   req.session.user = user;
 }
 
+function signOutUser(req) {
+  req.session = null;
+}
+
 module.exports = {
   isEmpty,
   encryptPassword,
   loginUser,
-  comparePassword
+  comparePassword,
+  signOutUser
 }
