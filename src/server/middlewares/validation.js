@@ -27,8 +27,12 @@ function isLoggedIn(req, res, next) {
   next();
 }
 
+function mayRedirectHome(req, res, next) {
+  if (!req.isLoggin) res.redirect('/');
+}
 module.exports = {
   validateSignUpForm,
   validateSignInForm,
-  isLoggedIn
+  isLoggedIn,
+  redirectHome
 }
