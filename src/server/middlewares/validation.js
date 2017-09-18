@@ -34,5 +34,5 @@ module.exports = {
   validateSignUpForm,
   validateSignInForm,
   isLoggedIn,
-  redirectHome
+  mayRedirectHome
 }

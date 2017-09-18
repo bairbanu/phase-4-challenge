@@ -20,11 +20,16 @@ router.route('/')
   })
   .post(urlEncodedParser, validateSignUpForm, (req, res) => {
     const newUser = req.body;
+    let userToDisplay;
 
     users.create(newUser)
       .then((user) => {
         loginUser(user, req);
-        res.render('user');
+        userToDisplay = user;
+        return reviews.getByUserId(user.id);
+      })
+      .then((reviews) => {
+        res.render('user', { user: userToDisplay, reviews});
       })
       .catch((error) => {
         console.log('An error occured while creating new user:', error);
