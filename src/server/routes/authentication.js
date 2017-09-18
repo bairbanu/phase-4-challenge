@@ -30,9 +30,7 @@ router.route('/sign-in')
 });
 
 router.get('/sign-out', (req, res) => {
-  console.log('session BEFORE signing out:::', req.session);
   signOutUser(req);
-  console.log('session AFTER signing out:::', req.session);
   res.redirect('/?isloggedIn=false');
 })
 
