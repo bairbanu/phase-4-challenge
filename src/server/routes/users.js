@@ -37,8 +37,18 @@ router.route('/')
       })
   })
 
-router.get('/:userID', (req, res) => {
-  res.send('yup, this is the user/:id route');
+// this is a partially authorized route -- user should not be able to see the delete review icon if they are not the user
+router.get('/:userID', isLoggedIn, (req, res) => {
+  const { userID } = req.params;
+
+  // get user info and user reviews, then display page
+  Promise.all( [users.getById(userID), reviews.getByUserId(userID) ] )
+    .then(([user, reviews]) => {
+      res.render('user', { user, reviews, loggedIn: req.isLoggedIn });
+    })
+    .catch((error) => {
+      res.status(500).render('error', { error });
+    });
 })
 
 module.exports = router;

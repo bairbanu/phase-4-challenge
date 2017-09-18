@@ -19,17 +19,11 @@ router.route('/sign-in')
   })
   .post(urlEncodedParser, validateSignInForm, (req, res, next) => {
     const credentials = req.body;
-    // let userToDisplay;
 
     user.loginByEmail(credentials, req)
       .then((user) => {
-        // userToDisplay = user;
-        // return reviews.getByUserId(user.id);
         res.redirect(`users/${user.id}`);
       })
-      // .then((reviews) => {
-      //   res.render('user', { user: userToDisplay, reviews, loggedIn: req.isLoggedIn });
-      // })
       .catch((error) => {
         console.log('An error occured while logging in user::', error);
         next(new Error('incorrect email and/or password'));
