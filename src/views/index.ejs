@@ -1,21 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Vinyl</title>
+  <title> Vinyl </title>
   <link rel="stylesheet" type="text/css" href="/style.css">
   <script type="text/javascript" src="/script.js"></script>
 </head>
 <body>
 
-  <h1>Vinyl</h1>
+  <%- include( 'partials/header' ) %>
 
-  <h2>Records</h2>
+  <h2> Records </h2>
 
   <div class="album-list">
-    <% albums.forEach(function(album) { %>
+    <% albums.forEach( function(album) { %>
       <div>
         <h5><a href="/albums/<%= album.id %>"><%= album.title %></a></h5>
         <span><%= album.artist %></span>
+      </div>
+    <% }) %>
+  </div>
+
+  <h2> Reviews </h2>
+  <div class="review-list">
+    <% reviews.forEach( function(review) { %>
+      <div>
+        <a href="/albums/<%= review.album_id %>"><%= review.album_title %></a>
+        <span><%= review.date_created %></span>
+        <p>
+          <%= review.content %>
+        </p>
+        <a href="/users/<%= review.user_id %>"><%= review.user_name %></a>
+        <p> ------------------------------ </p>
       </div>
     <% }) %>
   </div>

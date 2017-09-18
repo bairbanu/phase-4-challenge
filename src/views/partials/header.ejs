@@ -1,0 +1,15 @@
+<div>
+
+  <h1>Vinyl</h1>
+
+  <% if (!loggedIn) { %>
+    <a href="/sign-in"> Sign In </a>
+    <a href="/sign-up"> Sign Up </a>
+  <% } %>
+
+  <% if (loggedIn) { %>
+    <a href="/user"> Profile </a>
+    <a href="/sign-out"> Sign Out </a>
+  <% } %>
+
+</div>
