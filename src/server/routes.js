@@ -9,5 +9,6 @@ const authentication = require('./routes/authentication');
 router.use(home);
 router.use(albums);
 router.use(authentication);
+router.use('/users', users);
 
 module.exports = router;

@@ -9,7 +9,12 @@ function encryptPassword(password) {
   return bcrypt.hash(password, saltRounds);
 }
 
+function loginUser(user, req) {
+  req.session.user = user;
+}
+
 module.exports = {
   isEmpty,
-  encryptPassword
+  encryptPassword,
+  loginUser
 }

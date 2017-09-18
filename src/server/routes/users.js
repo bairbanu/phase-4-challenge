@@ -8,6 +8,8 @@ const { loginUser } = require('../../models/helper-functions');
 
 const urlEncodedParser = bodyParser.urlencoded({ extended: false });
 
+// the get route is authorized so will need to work on it in the future
+// it gets the user from the session and populates what needs to be populated
 router.route('/')
   .get((req, res) => {
     // get the active user
