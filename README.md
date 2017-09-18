@@ -29,4 +29,3 @@ Use the following commands to set up and seed your database:
 1. Create PostgreSQL database `vinyl`: `$ npm run db:create`
 1. Set up database tables from `schema.sql`: `$ npm run db:schema`
 1. Load seed data from `albums.sql`: `$ npm run db:seed`
-Connect provided code boilerplate with git repository
