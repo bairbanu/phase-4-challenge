@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title> Sign Up </title>
+  </head>
+  <body>
+    <h1> Sign Up for Vinyl </h1>
+
+    <form method="POST" action="/users">
+
+      <label for="name"> Name: </label>
+      <input id="name" type="text" name="name" />
+
+      <label for="email"> Email: </label>
+      <input id="email" type="email" name="email" />
+
+      <label for="password"> Password: </label>
+      <input id="password" type="text" name="password" />
+
+      <button type="submit"> Submit </button>
+
+    </form>
+
+    <% if (error === 'empty sign-up field') { %>
+      <p style=" color: red; ">
+        No field can be empty. Please enter a value.
+      </p>
+    <% } %>
+
+    <% if (error === 'user exists') { %>
+      <p style=" color: red; ">
+        Email taken. Please enter another email.
+      </p>
+    <% } %>
+
+  </body>
+</html>
