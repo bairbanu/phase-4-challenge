@@ -150,7 +150,7 @@ Users are able to sign out.
 
 Users can:
 
-- [ ] __20:__ Be redirected to the home page (e.g. `/`) after signing out by clicking the Sign Out button.
+- [x] __20:__ Be redirected to the home page (e.g. `/`) after signing out by clicking the Sign Out button.
 
 Users CANNOT:
 
