@@ -11,11 +11,11 @@ router.get('/sign-up', (req, res) => {
   res.render('sign-up', { error: false });
 });
 
-router.get('/sign-in', (req, res) => {
+router.route('/sign-in')
+  .get((req, res) => {
   res.render('sign-in', { error: false });
-});
-
-router.post('/authenticate', urlEncodedParser, validateSignInForm, (req, res, next) => {
+  })
+  .post(urlEncodedParser, validateSignInForm, (req, res, next) => {
   const credentials = req.body;
 
   user.loginByEmail(credentials, req)
