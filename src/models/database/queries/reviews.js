@@ -20,7 +20,7 @@ const queries = {
   },
 
   getReviewsByAlbumId: (id) => {
-
+    return db.any('SELECT * FROM reviews WHERE album_id = $1 ORDER BY date_created DESC', [id]);
   }
 
 };

@@ -6,5 +6,5 @@ module.exports = {
   getThreeNewest: db.getThreeNewestReviews,
   create: db.createReview,
   getByUserId: db.getReviewsByUserId,
-  getbyAlbumId: db.getReviewsByAlbumId
+  getByAlbumId: db.getReviewsByAlbumId
 };
