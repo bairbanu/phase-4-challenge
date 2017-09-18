@@ -3,6 +3,7 @@ const router = express.Router();
 const bodyParser = require('body-parser');
 
 const { validateSignInForm } = require('../middlewares/validation');
+const { signOutUser } = require('../../models/helper-functions');
 const user = require('../../models/users');
 
 const urlEncodedParser = bodyParser.urlencoded({ extended: false });
@@ -27,5 +28,10 @@ router.route('/sign-in')
       next(new Error('incorrect email and/or password'));
     })
 });
+
+router.get('/sign-out', (req, res) => {
+  signOutUser(req);
+  res.redirect('/?isloggedIn=false');
+})
 
 module.exports = router;

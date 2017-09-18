@@ -14,7 +14,21 @@ function validateSignInForm(req, res, next) {
   else next();
 }
 
+function isLoggedIn(req, res, next) {
+  if (!req.query && !req.session.user) {
+    req.isLoggedIn = false;
+  }
+  else if (req.query.isLoggedIn === 'false') {
+    req.isLoggedIn = false;
+  }
+  else if (req.session.user) {
+    req.isLoggedIn = true;
+  }
+  next();
+}
+
 module.exports = {
   validateSignUpForm,
-  validateSignInForm
+  validateSignInForm,
+  isLoggedIn
 }
