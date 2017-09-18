@@ -12,7 +12,7 @@ const urlEncodedParser = bodyParser.urlencoded({ extended: false });
 
 router.route('/')
   .get(isLoggedIn, mayRedirectHome, (req, res) => {
-    const user = createUserObjectFromSession(req.session);
+    const user = createUserObjectFromSession(req.session.user);
     reviews.getByUserId(user.id)
       .then((reviews) => {
         res.render('user', { user, reviews });

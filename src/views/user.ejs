@@ -5,8 +5,24 @@
     <title> User </title>
   </head>
   <body>
-    <p>
-      This is the active user
-    </p>
+    <img src="#" alt="Image Here" />
+    <h1> <%= user.name %> </h1>
+    <p> Email: <%=  user.email %> </p>
+    <p> Date Joined: <%=  user.date_joined %> </p>
+
+    <div class="review-list">
+      <% reviews.forEach( function(review) { %>
+        <div>
+          <a href="/albums/<%= review.album_id %>"><%= review.album_title %></a>
+          <span><%= review.date_created %></span>
+          <p>
+            <%= review.content %>
+          </p>
+          <a href="/users/<%= review.user_id %>"><%= review.user_name %></a>
+          <p> ------------------------------ </p>
+        </div>
+      <% }) %>
+    </div>
+    
   </body>
 </html>
