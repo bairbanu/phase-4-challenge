@@ -1,0 +1,30 @@
+{
+  "name": "Vinyl",
+  "version": "1.0.0",
+  "description": "A community for record enthusiasts to review their favorite albums.",
+  "engines": {
+    "node": "6.x"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "db:create": "createdb vinyl",
+    "db:drop": "dropdb vinyl",
+    "db:schema": "psql -d vinyl < src/db/schema.sql",
+    "db:seed": "psql -d vinyl < src/db/albums.sql",
+    "test": "./node_modules/.bin/eslint src"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "ejs": "^2.5.6",
+    "express": "^4.15.3",
+    "pg": "^6.2.4"
+  },
+  "devDependencies": {
+    "eslint": "^4.4.1",
+    "eslint-config-airbnb-base": "^11.3.1",
+    "eslint-plugin-import": "^2.7.0",
+    "nodemon": "^1.11.0"
+  }
+}
