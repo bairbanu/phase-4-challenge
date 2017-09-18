@@ -6,7 +6,7 @@ const reviews = require('../../models/reviews');
 
 // this is a partially authorized route -- have to add authorization check middleware
 // do this after setting up authentication
-router.get('/albums/:albumID', (req, res) => {
+router.get('/:albumID', (req, res) => {
   const { albumID } = req.params;
 
   Promise.all([albums.getById(albumID), reviews.getByAlbumId(albumID)])

@@ -12,7 +12,7 @@ const urlEncodedParser = bodyParser.urlencoded({ extended: false });
 // it gets the user from the session and populates what needs to be populated
 router.route('/')
   .get((req, res) => {
-    // get the active user
+    // get the active user -- authorized link. Will take user info from session
     res.send('/users get');
   })
   .post(urlEncodedParser, validateSignUpForm, (req, res, next) => {

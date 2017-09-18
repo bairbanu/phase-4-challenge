@@ -7,7 +7,7 @@ const users = require('./routes/users');
 const authentication = require('./routes/authentication');
 
 router.use(home);
-router.use(albums);
+router.use('/albums', albums);
 router.use(authentication);
 router.use('/users', users);
 

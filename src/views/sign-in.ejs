@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title> Sign In </title>
+  </head>
+  <body>
+    <h1> Sign In for Vinyl </h1>
+
+    <form method="POST" action="/authenticate">
+
+      <label for="email"> Email: </label>
+      <input type="email" name="email" id="email" />
+
+      <label for="password"> Password: </label>
+      <input type="text" name="password" id="password" />
+
+      <button type="submit"> Submit </button>
+
+    </form>
+
+    <% if (error === 'empty sign-in field') { %>
+      <p style=" color: red; ">
+        No field can be left empty.
+      </p>
+    <% } %>
+
+    <% if (error === 'incorrect email and/or password') { %>
+      <p style=" color: red; ">
+        Incorrect email and/or password.
+      </p>
+    <% } %>
+
+  </body>
+</html>
