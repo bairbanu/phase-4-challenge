@@ -14,20 +14,20 @@ router.get('/sign-up', (req, res) => {
 
 router.route('/sign-in')
   .get((req, res) => {
-  res.render('sign-in', { error: false });
+    res.render('sign-in', { error: false });
   })
   .post(urlEncodedParser, validateSignInForm, (req, res, next) => {
-  const credentials = req.body;
+    const credentials = req.body;
 
-  user.loginByEmail(credentials, req)
-    .then(() => {
-      res.render('user');
-    })
-    .catch((error) => {
-      console.log('An error occured while logging in user::', error);
-      next(new Error('incorrect email and/or password'));
-    })
-});
+    user.loginByEmail(credentials, req)
+      .then(() => {
+        res.render('user');
+      })
+      .catch((error) => {
+        console.log('An error occured while logging in user::', error);
+        next(new Error('incorrect email and/or password'));
+      })
+  });
 
 router.get('/sign-out', (req, res) => {
   signOutUser(req);
