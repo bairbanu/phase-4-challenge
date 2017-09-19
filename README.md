@@ -105,7 +105,7 @@ Routing:
 Users can:
 
 - [x] __20:__ Sign up for an account with name, email, and password.
-- [ ] __20:__ Be redirected to their profile page (e.g. `/users/<USER ID>`) after signing up.
+- [x] __20:__ Be redirected to their profile page (e.g. `/users/<USER ID>`) after signing up.
 
 Users CANNOT:
 
@@ -131,7 +131,7 @@ Routing:
 Users can:
 
 - [x] __20:__ Sign in to an existing account with an email address and password.
-- [ ] __20:__ Be redirected to their profile page (e.g. `/users/<USER ID>`) after signing in.
+- [x] __20:__ Be redirected to their profile page (e.g. `/users/<USER ID>`) after signing in.
 
 Users CANNOT:
 
@@ -164,7 +164,7 @@ Displays user details and submitted album reviews.
 
 Routing:
 
-- [ ] __20:__ Navigating to `/users/<USER ID>` loads the user profile page.
+- [x] __20:__ Navigating to `/users/<USER ID>` loads the user profile page.
 
 Users can:
 
