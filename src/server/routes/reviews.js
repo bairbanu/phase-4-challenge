@@ -5,10 +5,6 @@ const review = require('../../models/reviews');
 const { isLoggedIn } = require('../middlewares/validation');
 const { redirectAfterReviewDelete } = require('../middlewares/redirection');
 
-router.post('/', (req, res) => {
-  // create a new review
-});
-
 router.post('/delete/:reviewID/:userID', isLoggedIn, redirectAfterReviewDelete, (req, res, next) => {
   const { reviewID, userID } = req.params;
   const redirectAfterReviewDelete = req.direct;
