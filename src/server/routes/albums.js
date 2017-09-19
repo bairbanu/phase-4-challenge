@@ -20,7 +20,8 @@ router.get('/:albumID', isLoggedIn, (req, res) => {
     })
 });
 
-router.post('/:albumID/reviews/new', urlEncodedParser, (req, res) => {
+// gets the review adding form
+router.get('/:albumID/reviews/new', urlEncodedParser, (req, res) => {
   // get content from textarea: req.body.content
   // save content to database -- need user id, album id, content
   // redirect to album page using album id

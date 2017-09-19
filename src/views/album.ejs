@@ -12,6 +12,8 @@
   <h1><%= album.title %></h1>
   <em>by <%= album.artist %></em>
 
+  <a href="http://localhost:3000/albums/<%= album.id %>/reviews/new" data-album-name="<%= album.title %>"> Add Review </a>
+
   <h2>Reviews</h2>
 
   <div class="review-list">
