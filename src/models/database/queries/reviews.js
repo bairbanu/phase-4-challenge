@@ -16,11 +16,19 @@ const queries = {
   },
 
   getReviewsByUserId: (userID) => {
-    return db.any('SELECT * FROM reviews WHERE user_id = $1 ORDER BY date_created DESC', [userID]);
+    return db.any(`SELECT reviews.content, reviews.album_id, reviews.user_id, reviews.date_created, albums.title AS album_title, users.name AS user_name FROM reviews
+      INNER JOIN users ON reviews.user_id = users.id
+      INNER JOIN albums ON reviews.album_id = albums.id
+      WHERE reviews.user_id = $1
+      ORDER BY reviews.date_created DESC`, [userID]);
   },
 
   getReviewsByAlbumId: (albumID) => {
-    return db.any('SELECT * FROM reviews WHERE album_id = $1 ORDER BY date_created DESC', [albumID]);
+    return db.any(`SELECT reviews.content, reviews.album_id, reviews.user_id, reviews.date_created, albums.title AS album_title, users.name AS user_name FROM reviews
+      INNER JOIN users ON reviews.user_id = users.id
+      INNER JOIN albums ON reviews.album_id = albums.id
+      WHERE reviews.album_id = $1
+      ORDER BY reviews.date_created DESC`, [albumID]);
   },
 
   deleteByReviewID: (reviewID) => {
