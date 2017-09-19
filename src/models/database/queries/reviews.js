@@ -15,12 +15,16 @@ const queries = {
 
   },
 
-  getReviewsByUserId: (id) => {
-    return db.any('SELECT * FROM reviews WHERE user_id = $1', [id]);
+  getReviewsByUserId: (userID) => {
+    return db.any('SELECT * FROM reviews WHERE user_id = $1 ORDER BY date_created DESC', [userID]);
   },
 
-  getReviewsByAlbumId: (id) => {
-    return db.any('SELECT * FROM reviews WHERE album_id = $1 ORDER BY date_created DESC', [id]);
+  getReviewsByAlbumId: (albumID) => {
+    return db.any('SELECT * FROM reviews WHERE album_id = $1 ORDER BY date_created DESC', [albumID]);
+  },
+
+  deleteByReviewID: (reviewID) => {
+    return db.none('DELETE FROM reviews WHERE id = $1', [reviewID]);
   }
 
 };

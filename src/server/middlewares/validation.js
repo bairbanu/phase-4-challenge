@@ -31,9 +31,15 @@ function mayRedirectHome(req, res, next) {
   if (!req.isLoggedIn) res.redirect('/');
   next();
 }
+
+function checkPermission(req, res, next) {
+  next(new Error);
+}
+
 module.exports = {
   validateSignUpForm,
   validateSignInForm,
   isLoggedIn,
-  mayRedirectHome
+  mayRedirectHome,
+  checkPermission
 }

@@ -17,5 +17,8 @@ module.exports = (err, req, res, next) => {
       res.render('sign-in', { error: 'incorrect email and/or password' });
       break;
 
+    default:
+      res.render('error', { error: err });
+      
   }
 };
