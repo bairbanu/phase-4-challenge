@@ -16,7 +16,7 @@ const queries = {
   },
 
   getReviewsByUserId: (id) => {
-
+    return db.any('SELECT * FROM reviews WHERE user_id = $1', [id]);
   },
 
   getReviewsByAlbumId: (id) => {

@@ -33,7 +33,10 @@ function loginByEmail(user, req) {
       return comparePassword(plainPassword, hash);
     })
     .then((match) => {
-      if (match) loginUser(verifiedUser, req);
+      if (match) {
+        loginUser(verifiedUser, req);
+        return verifiedUser;
+      }
       else throw Error('incorrect email and/or password');
     })
 }

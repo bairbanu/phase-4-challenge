@@ -2,11 +2,34 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title> User </title>
+    <title> Profile </title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <script type="text/javascript" src="/script.js"></script>
   </head>
   <body>
-    <p>
-      This is the active user
-    </p>
+    <%- include( 'partials/header' ) %>
+
+    <img src="#" alt="Image Here" />
+    <h1> <%= user.name %> </h1>
+    <p> Email: <%=  user.email %> </p>
+    <p> Date Joined: <%=  user.date_joined %> </p>
+
+    <div class="review-list">
+      <% reviews.forEach( function(review) { %>
+        <div>
+          <a href="/albums/<%= review.album_id %>"><%= review.album_title %></a>
+          <span><%= review.date_created %></span>
+          <p>
+            <%= review.content %>
+          </p>
+          <a href="/users/<%= review.user_id %>"><%= review.user_name %></a>
+
+          <a class="delete-button" href="#" data-user-id="<%= review.user_id %>" data-review-id="<%= review.id %>"> Delete </a>
+
+          <p> ------------------------------ </p>
+        </div>
+      <% }) %>
+    </div>
+
   </body>
 </html>

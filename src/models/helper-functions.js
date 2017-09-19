@@ -21,10 +21,20 @@ function signOutUser(req) {
   req.session = null;
 }
 
+function createUserObjectFromSession(session) {
+  return {
+    id: session.id,
+    name: session.name,
+    email: session.email,
+    date_joined: session.date_joined
+  }
+}
+
 module.exports = {
   isEmpty,
   encryptPassword,
   loginUser,
   comparePassword,
-  signOutUser
+  signOutUser,
+  createUserObjectFromSession
 }

@@ -8,7 +8,7 @@ const queries = {
   },
 
   getUserById: (id) => {
-
+    return db.one('SELECT id, name, email, date_joined FROM users WHERE id = $1', [id]);
   },
 
   getUserByEmail: (email) => {

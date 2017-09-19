@@ -2,9 +2,10 @@ const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser');
 
-const { validateSignInForm } = require('../middlewares/validation');
+const { validateSignInForm, isLoggedIn } = require('../middlewares/validation');
 const { signOutUser } = require('../../models/helper-functions');
 const user = require('../../models/users');
+const reviews = require('../../models/reviews');
 
 const urlEncodedParser = bodyParser.urlencoded({ extended: false });
 
@@ -20,8 +21,8 @@ router.route('/sign-in')
     const credentials = req.body;
 
     user.loginByEmail(credentials, req)
-      .then(() => {
-        res.render('user');
+      .then((user) => {
+        res.redirect(`users/${user.id}`);
       })
       .catch((error) => {
         console.log('An error occured while logging in user::', error);
