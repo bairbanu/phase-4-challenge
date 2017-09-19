@@ -171,9 +171,9 @@ Users can:
 - [x] __20:__ View their name, email, and join date.
 - [x] __20:__ View only their submitted reviews sorted by newest first.
 - [ ] __20:__ View "trash can" delete icons only next to reviews submitted by users.
-- [ ] __20:__ View a pop-up with a Cancel button, a Confirm button, and a message that reads, "Are you sure you want to delete this review?" after clicking the delete icon next to a review.
-- [ ] __20:__ Have the pop-up dismissed after clicking Cancel.
-- [ ] __20:__ Have the review deleted from the database and removed from the user profile page after clicking Confirm.
+- [x] __20:__ View a pop-up with a Cancel button, a Confirm button, and a message that reads, "Are you sure you want to delete this review?" after clicking the delete icon next to a review.
+- [x] __20:__ Have the pop-up dismissed after clicking Cancel.
+- [x] __20:__ Have the review deleted from the database and removed from the user profile page after clicking Confirm.
 
 Layout:
 
@@ -203,8 +203,8 @@ Users can:
 
 Users CANNOT:
 
-- [ ] __20:__ Delete a review when not logged in.
-- [ ] __20:__ Delete another user's review.
+- [x] __20:__ Delete a review when not logged in.
+- [x] __20:__ Delete another user's review.
 
 Layout:
 
