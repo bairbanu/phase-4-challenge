@@ -12,7 +12,6 @@ const urlEncodedParser = bodyParser.urlencoded({ extended: false });
 
 router.route('/')
   .get(isLoggedIn, mayRedirectHome, (req, res) => {
-    console.log('it enters here the /users route');
     const user = createUserObjectFromSession(req.session.user);
     reviews.getByUserId(user.id)
       .then((reviews) => {

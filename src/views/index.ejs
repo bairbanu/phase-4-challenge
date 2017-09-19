@@ -20,20 +20,7 @@
     <% }) %>
   </div>
 
-  <h2> Reviews </h2>
-  <div class="review-list">
-    <% reviews.forEach( function(review) { %>
-      <div>
-        <a href="/albums/<%= review.album_id %>"><%= review.album_title %></a>
-        <span><%= review.date_created %></span>
-        <p>
-          <%= review.content %>
-        </p>
-        <a href="/users/<%= review.user_id %>"><%= review.user_name %></a>
-        <p> ------------------------------ </p>
-      </div>
-    <% }) %>
-  </div>
+  <%- include( 'partials/reviews' ) %>
 
 </body>
 </html>
