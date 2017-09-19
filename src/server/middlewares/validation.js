@@ -15,7 +15,7 @@ function validateSignInForm(req, res, next) {
 }
 
 function isLoggedIn(req, res, next) {
-  if (!req.query && !req.session.user) {
+  if (!req.session.user) {
     req.isLoggedIn = false;
   }
   else if (req.query.isLoggedIn === 'false') {
@@ -28,7 +28,8 @@ function isLoggedIn(req, res, next) {
 }
 
 function mayRedirectHome(req, res, next) {
-  if (!req.isLoggin) res.redirect('/');
+  if (!req.isLoggedIn) res.redirect('/');
+  next();
 }
 module.exports = {
   validateSignUpForm,

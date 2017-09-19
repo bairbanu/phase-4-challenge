@@ -12,6 +12,7 @@ const urlEncodedParser = bodyParser.urlencoded({ extended: false });
 
 router.route('/')
   .get(isLoggedIn, mayRedirectHome, (req, res) => {
+    console.log('it enters here the /users route');
     const user = createUserObjectFromSession(req.session.user);
     reviews.getByUserId(user.id)
       .then((reviews) => {
@@ -25,11 +26,7 @@ router.route('/')
     users.create(newUser)
       .then((user) => {
         loginUser(user, req);
-        userToDisplay = user;
-        return reviews.getByUserId(user.id);
-      })
-      .then((reviews) => {
-        res.render('user', { user: userToDisplay, reviews, loggedIn: req.isLoggedIn});
+        res.redirect(`users/${user.id}`);
       })
       .catch((error) => {
         console.log('An error occured while creating new user:', error);
@@ -37,11 +34,9 @@ router.route('/')
       })
   })
 
-// this is a partially authorized route -- user should not be able to see the delete review icon if they are not the user
 router.get('/:userID', isLoggedIn, (req, res) => {
   const { userID } = req.params;
 
-  // get user info and user reviews, then display page
   Promise.all( [users.getById(userID), reviews.getByUserId(userID) ] )
     .then(([user, reviews]) => {
       res.render('user', { user, reviews, loggedIn: req.isLoggedIn });
