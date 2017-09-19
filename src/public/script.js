@@ -11,7 +11,19 @@ function deleteReview(event) {
 
   if (confirmResult) {
     // make fetch call:: 2 and 3 are the attributes I need
-    console.log('user id:', event.path[0].attributes[2].value);
-    console.log('review id:', event.path[0].attributes[3].value);
+
+    const userID = event.target.getAttribute('data-user-id');
+    const reviewID = event.target.getAttribute('data-review-id');
+
+    // fetch('http://localhost:3000/reviews', {
+    //   method: "GET",
+    //   data: [userID, reviewID]
+    // });
+
+    fetch(`/reviews`, {method: 'delete', credentials: 'include'})
+      .then(location.reload())
+      .catch((error) => {
+        console.error(error)
+      })
   }
 }
