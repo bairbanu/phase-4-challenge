@@ -14,6 +14,8 @@ router.get('/:albumID', (req, res) => {
       // check logged in status before rendering proper page
       // if logged in, render logged in 'true' header
       // if logged in, show add review button and delete review icon
+
+      // the reviews here need user information
       res.render('album', { album: album[0], reviews, loggedIn: false });
     })
     .catch((error) => {
