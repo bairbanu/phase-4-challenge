@@ -32,14 +32,9 @@ function mayRedirectHome(req, res, next) {
   next();
 }
 
-function checkPermission(req, res, next) {
-  next(new Error);
-}
-
 module.exports = {
   validateSignUpForm,
   validateSignInForm,
   isLoggedIn,
-  mayRedirectHome,
-  checkPermission
+  mayRedirectHome
 }
