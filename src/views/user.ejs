@@ -26,7 +26,7 @@
           <form
           onsubmit="return confirm('Are you sure you would like to delete this review?')"
           method="POST"
-          action="http://localhost:3000/reviews/delete/<%= review.id %>/<%= review.user_id%>?page=user">
+          action="http://localhost:3000/reviews/delete/<%= review.id %>/<%= review.user_id%>?page=users&id=<%= review.user_id %>">
             <button type="submit"> Delete </button>
           </form>
 
