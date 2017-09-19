@@ -8,11 +8,11 @@ function remove(reviewID, userID, req, next) {
     sessionID = req.session.user.id;
   }
 
-  console.log('sessionID::', sessionID, 'userID::', userID);
-  if (!isLoggedIn) next(new Error('Cannot delete review without logging in.'));
-  if (sessionID != userID) next(new Error('Cannot delete review created by another user'));
-
-  return db.deleteByReviewID(reviewID);
+  if (!isLoggedIn) throw Error('Cannot delete review without logging in.');
+  else if (sessionID != userID) throw Error('Cannot delete review created by another user');
+  else {
+    return db.deleteByReviewID(reviewID);
+  }
 }
 
 module.exports = {

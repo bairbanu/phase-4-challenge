@@ -14,7 +14,27 @@
 
   <h2>Reviews</h2>
 
-  <%- include( 'partials/reviews' ) %>
+  <div class="review-list">
+    <% reviews.forEach( function(review) { %>
+      <div>
+        <a href="/albums/<%= review.album_id %>"><%= review.album_title %></a>
+        <span><%= review.date_created %></span>
+        <p>
+          <%= review.content %>
+        </p>
+        <a href="/users/<%= review.user_id %>"><%= review.user_name %></a>
+
+        <form
+        onsubmit="return confirm('Are you sure you would like to delete this review?')"
+        method="POST"
+        action="http://localhost:3000/reviews/delete/<%= review.id %>/<%= review.user_id%>/?page=album">
+          <button type="submit"> Delete </button>
+        </form>
+
+        <p> ------------------------------ </p>
+      </div>
+    <% }) %>
+  </div>
 
 </body>
 </html>
