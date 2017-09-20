@@ -28,19 +28,19 @@
           <label for="password"> Password: </label>
           <input type="text" name="password" id="password" class="form-control" />
         </div>
-        
+
         <button type="submit" class="btn btn-primary"> Submit </button>
 
       </form>
 
       <% if (error === 'empty sign-in field') { %>
-        <p style=" color: red; ">
+        <p style=" color: red; " class="error">
           No field can be left empty.
         </p>
       <% } %>
 
       <% if (error === 'incorrect email and/or password') { %>
-        <p style=" color: red; ">
+        <p style=" color: red; " class="error">
           Incorrect email and/or password.
         </p>
       <% } %>

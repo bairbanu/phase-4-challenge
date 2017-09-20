@@ -6,7 +6,7 @@ function redirectAfterReviewDelete(req, res, next) {
 
 function mayRedirectHome(req, res, next) {
   if (!req.isLoggedIn) res.redirect('/');
-  next();
+  else next();
 }
 
 module.exports = {

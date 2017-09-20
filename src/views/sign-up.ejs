@@ -39,13 +39,13 @@
       </form>
 
       <% if (error === 'empty sign-up field') { %>
-        <p style=" color: red; ">
+        <p style=" color: red; " class="error">
           No field can be empty. Please enter a value.
         </p>
       <% } %>
 
       <% if (error === 'user exists') { %>
-        <p style=" color: red; ">
+        <p style=" color: red; " class="error">
           Email taken. Please enter another email.
         </p>
       <% } %>

@@ -80,3 +80,7 @@ html, body {
 .delete-icon {
   width: 50px;
 }
+
+.error {
+  margin-top: 20px;
+}
