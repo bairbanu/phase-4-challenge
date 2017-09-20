@@ -3,3 +3,18 @@ html, body {
   padding: 0;
   width: 100vw;
 }
+
+.img-size {
+  height: 300px;
+  width: 100vw;
+  background-image: url("http://blog.perspectivesjournal.org/wp-content/uploads/sites/2/2014/12/vinyl-records2.jpg");
+  background-size: stretch;
+}
+
+.header {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}

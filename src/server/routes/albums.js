@@ -1,26 +1,33 @@
 const express = require('express');
 const router = express.Router();
+const bodyParser = require('body-parser');
 
 const albums = require('../../models/albums');
 const reviews = require('../../models/reviews');
+const { isLoggedIn } = require('../middlewares/validation');
+const { mayRedirectHome } = require('../middlewares/redirection');
 
-// this is a partially authorized route -- have to add authorization check middleware
-// do this after setting up authentication
-router.get('/:albumID', (req, res) => {
+const urlEncodedParser = bodyParser.urlencoded({ extended: false });
+
+router.get('/:albumID', isLoggedIn, (req, res) => {
   const { albumID } = req.params;
 
   Promise.all([albums.getById(albumID), reviews.getByAlbumId(albumID)])
     .then(([album, reviews]) => {
-      // check logged in status before rendering proper page
-      // if logged in, render logged in 'true' header
-      // if logged in, show add review button and delete review icon
-
-      // the reviews here need user information
-      res.render('album', { album: album[0], reviews, loggedIn: false });
+      res.render('album', { album: album[0], reviews, loggedIn: req.isLoggedIn });
     })
     .catch((error) => {
       res.status(500).render('error', { error: error })
     })
 });
+
+router.get('/:albumID/reviews/new', isLoggedIn, mayRedirectHome, urlEncodedParser, (req, res) => {
+  const album = {
+    title: req.query.title,
+    id: req.params.albumID
+  }
+
+  res.render('review', { album, error: false });
+})
 
 module.exports = router;

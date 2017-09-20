@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title> Profile </title>
+    <title> Vinyl: <%= user.name %> </title>
     <link rel="stylesheet" type="text/css" href="/style.css">
     <script type="text/javascript" src="/script.js"></script>
   </head>
@@ -22,9 +22,13 @@
           <p>
             <%= review.content %>
           </p>
-          <a href="/users/<%= review.user_id %>"><%= review.user_name %></a>
 
-          <a href="#" class="delete-button" data-user-id="<%= review.user_id %>" data-review-id="<%= review.id %>"> Delete </a>
+          <form
+          onsubmit="return confirm('Are you sure you would like to delete this review?')"
+          method="POST"
+          action="http://localhost:3000/reviews/delete/<%= review.id %>/<%= review.user_id%>?page=users&id=<%= review.user_id %>">
+            <button type="submit"> Delete </button>
+          </form>
 
           <p> ------------------------------ </p>
         </div>

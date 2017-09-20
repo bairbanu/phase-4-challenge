@@ -11,16 +11,28 @@ const queries = {
       LIMIT 3`)
   },
 
-  createReview: () => {
-
+  createReview: (content, album_id, user_id) => {
+    return db.none('INSERT INTO reviews (content, album_id, user_id) VALUES ($1, $2, $3)', [content, album_id, user_id])
   },
 
-  getReviewsByUserId: (id) => {
-    return db.any('SELECT * FROM reviews WHERE user_id = $1', [id]);
+  getReviewsByUserId: (userID) => {
+    return db.any(`SELECT reviews.id, reviews.content, reviews.album_id, reviews.user_id, reviews.date_created, albums.title AS album_title, users.name AS user_name FROM reviews
+      INNER JOIN users ON reviews.user_id = users.id
+      INNER JOIN albums ON reviews.album_id = albums.id
+      WHERE reviews.user_id = $1
+      ORDER BY reviews.date_created DESC`, [userID]);
   },
 
-  getReviewsByAlbumId: (id) => {
-    return db.any('SELECT * FROM reviews WHERE album_id = $1 ORDER BY date_created DESC', [id]);
+  getReviewsByAlbumId: (albumID) => {
+    return db.any(`SELECT reviews.id, reviews.content, reviews.album_id, reviews.user_id, reviews.date_created, albums.title AS album_title, users.name AS user_name FROM reviews
+      INNER JOIN users ON reviews.user_id = users.id
+      INNER JOIN albums ON reviews.album_id = albums.id
+      WHERE reviews.album_id = $1
+      ORDER BY reviews.date_created DESC`, [albumID]);
+  },
+
+  deleteByReviewID: (reviewID) => {
+    return db.none('DELETE FROM reviews WHERE id = $1', [reviewID]);
   }
 
 };

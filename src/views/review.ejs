@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title> Add Review </title>
+  </head>
+  <body>
+    <h1><a href="/"> Vinyl </a></h1>
+    <h2> Add Review for <%= album.title %> </h2>
+
+    <form method="POST" action="/reviews">
+      <input type="hidden" name="album_id" value="<%= album.id %>" />
+      <input type="hidden" name="album_title" value="<%= album.title %>" />
+      <textarea rows="5" cols="50" name="content" placeholder="Enter your review..."></textarea>
+      <button type="submit"> Submit </button>
+    </form>
+
+    <% if (error === 'empty review post') { %>
+      <p style=" color: red; ">
+        Please enter text for your review.
+      </p>
+    <% } %>
+    
+  </body>
+</html>
