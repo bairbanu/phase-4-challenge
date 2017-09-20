@@ -18,7 +18,7 @@
       <% reviews.forEach( function(review) { %>
         <div>
           <a href="/albums/<%= review.album_id %>"><%= review.album_title %></a>
-          <span><%= review.date_created %></span>
+          <span> Created: <%= review.date_created %></span>
           <p>
             <%= review.content %>
           </p>

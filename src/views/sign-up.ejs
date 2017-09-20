@@ -3,37 +3,53 @@
   <head>
     <meta charset="utf-8">
     <title> Sign Up </title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link
+      rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous">
   </head>
-  <body>
-    <h1><a href="/"> Vinyl </a></h1>
-    <h2> Sign Up </h2>
 
-    <form method="POST" action="/users">
+  <body class="form">
 
-      <label for="name"> Name: </label>
-      <input id="name" type="text" name="name" />
+    <div class="form-heading">
+      <h1><a href="/"> Vinyl </a></h1>
+      <h2> Sign Up </h2>
+    </div>
 
-      <label for="email"> Email: </label>
-      <input id="email" type="email" name="email" />
+    <div>
+      <form method="POST" action="/users">
 
-      <label for="password"> Password: </label>
-      <input id="password" type="text" name="password" />
+        <div class="form-group">
+          <label for="name"> Name: </label>
+          <input id="name" type="text" name="name" class="form-control"/>
+        </div>
 
-      <button type="submit"> Submit </button>
+        <div class="form-group">
+          <label for="email"> Email: </label>
+          <input id="email" type="email" name="email" class="form-control" />
+        </div>
 
-    </form>
+        <div class="form-group">
+          <label for="password"> Password: </label>
+          <input id="password" type="text" name="password" class="form-control"/>
+        </div>
 
-    <% if (error === 'empty sign-up field') { %>
-      <p style=" color: red; ">
-        No field can be empty. Please enter a value.
-      </p>
-    <% } %>
+        <button type="submit" class="btn btn-primary"> Submit </button>
 
-    <% if (error === 'user exists') { %>
-      <p style=" color: red; ">
-        Email taken. Please enter another email.
-      </p>
-    <% } %>
+      </form>
+
+      <% if (error === 'empty sign-up field') { %>
+        <p style=" color: red; ">
+          No field can be empty. Please enter a value.
+        </p>
+      <% } %>
+
+      <% if (error === 'user exists') { %>
+        <p style=" color: red; ">
+          Email taken. Please enter another email.
+        </p>
+      <% } %>
+    </div>
 
   </body>
 </html>
