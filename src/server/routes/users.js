@@ -12,6 +12,7 @@ const { loginUser, createUserObjectFromSession } = require('../../models/helper-
 const urlEncodedParser = bodyParser.urlencoded({ extended: false });
 
 router.route('/')
+
   .get(isLoggedIn, mayRedirectHome, (req, res) => {
     const user = createUserObjectFromSession(req.session.user);
     reviews.getByUserId(user.id)
@@ -19,6 +20,7 @@ router.route('/')
         res.render('user', { user, reviews, loggedIn: req.isLoggedIn });
       })
   })
+
   .post(urlEncodedParser, validateSignUpForm, isLoggedIn, (req, res) => {
     const newUser = req.body;
     let userToDisplay;
@@ -32,7 +34,7 @@ router.route('/')
         console.log('An error occured while creating new user:', error);
         next(new Error('user exists'));
       })
-  })
+  });
 
 router.get('/:userID', isLoggedIn, (req, res) => {
   const { userID } = req.params;
@@ -44,6 +46,6 @@ router.get('/:userID', isLoggedIn, (req, res) => {
     .catch((error) => {
       res.status(500).render('error', { error });
     });
-})
+});
 
 module.exports = router;

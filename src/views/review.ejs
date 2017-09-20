@@ -3,23 +3,38 @@
   <head>
     <meta charset="utf-8">
     <title> Add Review </title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link
+      rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous">
   </head>
-  <body>
-    <h1><a href="/"> Vinyl </a></h1>
-    <h2> Add Review for <%= album.title %> </h2>
+  <body class="form">
 
-    <form method="POST" action="/reviews">
-      <input type="hidden" name="album_id" value="<%= album.id %>" />
-      <input type="hidden" name="album_title" value="<%= album.title %>" />
-      <textarea rows="5" cols="50" name="content" placeholder="Enter your review..."></textarea>
-      <button type="submit"> Submit </button>
-    </form>
+    <div class="form-heading">
+      <h1><a href="/"> Vinyl </a></h1>
+      <h2> Add Review for <%= album.title %> </h2>
+    </div>
 
-    <% if (error === 'empty review post') { %>
-      <p style=" color: red; ">
-        Please enter text for your review.
-      </p>
-    <% } %>
-    
+    <div>
+      <form method="POST" action="/reviews">
+
+        <input type="hidden" name="album_id" value="<%= album.id %>" />
+        <input type="hidden" name="album_title" value="<%= album.title %>" />
+
+        <div class="form-group">
+          <textarea rows="5" cols="50" name="content" placeholder="Enter your review..." class="form-control"></textarea>
+        </div>
+
+        <button type="submit"class="btn btn-primary"> Submit </button>
+
+      </form>
+
+      <% if (error === 'empty review post') { %>
+        <p style=" color: red; " class="error">
+          Please enter text for your review.
+        </p>
+      <% } %>
+    </div>
+
   </body>
 </html>

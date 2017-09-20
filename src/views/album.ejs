@@ -3,38 +3,50 @@
 <head>
   <title>Vinyl : <%= album.title %></title>
   <link rel="stylesheet" type="text/css" href="/style.css">
-  <script type="text/javascript" src="/script.js"></script>
+  <link
+    rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
 </head>
 <body>
 
   <%- include( 'partials/header' ) %>
 
-  <h1><%= album.title %></h1>
-  <em>by <%= album.artist %></em>
+  <div class="flex">
+    <div>
+      <h1><%= album.title %></h1>
+      <em>By: <%= album.artist %></em>
+    </div>
 
-  <a href="http://localhost:3000/albums/<%= album.id %>/reviews/new?title=<%= album.title %>"> Add Review </a>
+    <div class="flex-row">
+      <h2>Reviews</h2>
+      <a class="btn btn-primary" href="http://localhost:3000/albums/<%= album.id %>/reviews/new?title=<%= album.title %>"> Add Review </a>
+    </div>
 
-  <h2>Reviews</h2>
+    <br />
 
-  <div class="review-list">
-    <% reviews.forEach( function(review) { %>
-      <div>
-        <span><%= review.date_created %></span>
-        <p>
-          <%= review.content %>
-        </p>
-        <a href="/users/<%= review.user_id %>"><%= review.user_name %></a>
+    <div class="review-list">
+      <% reviews.forEach( function(review) { %>
+        <div class="flex-row-review">
 
-        <form
-        onsubmit="return confirm('Are you sure you would like to delete this review?')"
-        method="POST"
-        action="http://localhost:3000/reviews/delete/<%= review.id %>/<%= review.user_id%>?page=albums&id=<%= review.album_id %>">
-          <button type="submit"> Delete </button>
-        </form>
+          <div class="review-content">
+            <p> Created: <%= review.date_created %> </p>
+            <br />
+            <p> <%= review.content %> </p>
+            <a href="/users/<%= review.user_id %>">By: <%= review.user_name %></a>
+          </div>
 
-        <p> ------------------------------ </p>
-      </div>
-    <% }) %>
+          <div class="delete-icon">
+            <form
+            onsubmit="return confirm('Are you sure you would like to delete this review?')"
+            method="POST"
+            action="http://localhost:3000/reviews/delete/<%= review.id %>/<%= review.user_id%>?page=albums&id=<%= review.album_id %>">
+              <button type="submit" class="glyphicon glyphicon-trash"></button>
+            </form>
+          </div>
+        </div>
+        <br />
+      <% }) %>
+    </div>
   </div>
 
 </body>
