@@ -71,7 +71,7 @@ Users can:
 
 Layout:
 
-- [ ] __20:__ The layout of the header matches the wireframes.
+- [x] __20:__ The layout of the header matches the wireframes.
 
 ## Home
 
@@ -90,7 +90,7 @@ Users can:
 Layout:
 
 - [x] __10:__ The site-wide header is visible on the home page.
-- [ ] __20:__ The layout of the home page matches the wireframes.
+- [x] __20:__ The layout of the home page matches the wireframes.
 
 ## Sign Up
 
@@ -116,7 +116,7 @@ Users CANNOT:
 Layout:
 
 - [x] __10:__ The site-wide header is visible on the sign up page.
-- [ ] __20:__ The layout of the sign up page matches the wireframes.
+- [x] __20:__ The layout of the sign up page matches the wireframes.
 
 ## Sign In
 
@@ -140,7 +140,7 @@ Users CANNOT:
 Layout:
 
 - [x] __10:__ The site-wide header is visible on the sign in page.
-- [ ] __20:__ The layout of the sign in page matches the wireframes.
+- [x] __20:__ The layout of the sign in page matches the wireframes.
 
 ## Sign Out
 
@@ -170,7 +170,7 @@ Users can:
 
 - [x] __20:__ View their name, email, and join date.
 - [x] __20:__ View only their submitted reviews sorted by newest first.
-- [ ] __20:__ View "trash can" delete icons only next to reviews submitted by users.
+- [x] __20:__ View "trash can" delete icons only next to reviews submitted by users.
 - [x] __20:__ View a pop-up with a Cancel button, a Confirm button, and a message that reads, "Are you sure you want to delete this review?" after clicking the delete icon next to a review.
 - [x] __20:__ Have the pop-up dismissed after clicking Cancel.
 - [x] __20:__ Have the review deleted from the database and removed from the user profile page after clicking Confirm.
@@ -178,7 +178,7 @@ Users can:
 Layout:
 
 - [x] __10:__ The site-wide header is visible on the user profile page.
-- [ ] __20:__ The layout of the user profile page matches the wireframes.
+- [x] __20:__ The layout of the user profile page matches the wireframes.
 
 ## Album Details
 
@@ -194,7 +194,7 @@ Users can:
 
 - [x] __20:__ View the name of the album on the album page.
 - [x] __20:__ View all reviews for the album on album page sorted by newest first.
-- [ ] __20:__ View "trash can" delete icons next to reviews the user can delete.
+- [x] __20:__ View "trash can" delete icons next to reviews the user can delete.
 - [x] __20:__ View a pop-up with a Cancel button, a Confirm button, and a message that reads, "Are you sure you want to delete this review?" after clicking the trash can icon next to a review.
 - [x] __20:__ Have the pop-up dismissed after clicking Cancel.
 - [x] __20:__ Have the review deleted from the database and removed from the album page after clicking Confirm.
@@ -209,7 +209,7 @@ Users CANNOT:
 Layout:
 
 - [x] __10:__ The site-wide header is visible on the album page.
-- [ ] __20:__ The layout of the album page matches the wireframes.
+- [x] __20:__ The layout of the album page matches the wireframes.
 
 ## New Review
 
@@ -230,12 +230,12 @@ Users can:
 Users CANNOT:
 
 - [x] __20:__ Submit a review when not logged in.
-- [ ] __20:__ Submit an empty review.
+- [x] __20:__ Submit an empty review.
 
 Layout:
 
-- [ ] __10:__ The site-wide header is visible on the new review page.
-- [ ] __20:__ The layout of the new review page matches the wireframes.
+- [x] __10:__ The site-wide header is visible on the new review page.
+- [x] __20:__ The layout of the new review page matches the wireframes.
 
 ---
 
