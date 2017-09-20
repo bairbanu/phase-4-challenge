@@ -154,7 +154,7 @@ Users can:
 
 Users CANNOT:
 
-- [ ] __20:__ Perform any actions that require a user to be signed in after signing out.
+- [x] __20:__ Perform any actions that require a user to be signed in after signing out.
 
 ## User Profile
 
@@ -198,8 +198,8 @@ Users can:
 - [x] __20:__ View a pop-up with a Cancel button, a Confirm button, and a message that reads, "Are you sure you want to delete this review?" after clicking the trash can icon next to a review.
 - [x] __20:__ Have the pop-up dismissed after clicking Cancel.
 - [x] __20:__ Have the review deleted from the database and removed from the album page after clicking Confirm.
-- [ ] __20:__ View a button with the label "Add Review".
-- [ ] __20:__ Be redirected to the new review page (e.g. `/albums/<ALBUM ID>/reviews/new`) the after clicking the "Add Review" button.
+- [x] __20:__ View a button with the label "Add Review".
+- [x] __20:__ Be redirected to the new review page (e.g. `/albums/<ALBUM ID>/reviews/new`) the after clicking the "Add Review" button.
 
 Users CANNOT:
 
@@ -219,17 +219,17 @@ Displays a form that allows users to submit album reviews.
 
 Routing:
 
-- [ ] __20:__ Navigating to `/albums/<ALBUM ID>/reviews/new` loads the new review page.
+- [x] __20:__ Navigating to `/albums/<ALBUM ID>/reviews/new` loads the new review page.
 
 Users can:
 
-- [ ] __20:__ Enter multi-line text in the text field.
-- [ ] __20:__ Click the Submit button to submit the review.
-- [ ] __20:__ Be redirected to the album page (e.g. `/albums/<ALBUM ID>`) after submitting the review.
+- [x] __20:__ Enter multi-line text in the text field.
+- [x] __20:__ Click the Submit button to submit the review.
+- [x] __20:__ Be redirected to the album page (e.g. `/albums/<ALBUM ID>`) after submitting the review.
 
 Users CANNOT:
 
-- [ ] __20:__ Submit a review when not logged in.
+- [x] __20:__ Submit a review when not logged in.
 - [ ] __20:__ Submit an empty review.
 
 Layout:
