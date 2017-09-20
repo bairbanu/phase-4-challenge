@@ -17,8 +17,14 @@ module.exports = (err, req, res, next) => {
       res.render('sign-in', { error: 'incorrect email and/or password' });
       break;
 
+    case 'empty review post':
+      const { album_title: title, album_id: id} = req.body;
+      const album = { title, id };
+      res.render('review', { error: 'empty review post', album });
+      break;
+
     default:
       res.render('error', { error: err });
-      
+
   }
 };

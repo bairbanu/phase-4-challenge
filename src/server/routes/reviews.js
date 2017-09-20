@@ -3,12 +3,12 @@ const router = express.Router();
 const bodyParser = require('body-parser');
 
 const review = require('../../models/reviews');
-const { isLoggedIn } = require('../middlewares/validation');
+const { isLoggedIn, validatePostReviewForm } = require('../middlewares/validation');
 const { redirectAfterReviewDelete } = require('../middlewares/redirection');
 
 const urlEncodedParser = bodyParser.urlencoded({ extended: false });
 
-router.post('/', urlEncodedParser, (req, res) => {
+router.post('/', urlEncodedParser, validatePostReviewForm, (req, res) => {
   const { album_id } = req.body;
 
   review.create(req)

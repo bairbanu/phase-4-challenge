@@ -27,7 +27,7 @@ router.get('/:albumID/reviews/new', isLoggedIn, mayRedirectHome, urlEncodedParse
     id: req.params.albumID
   }
 
-  res.render('review', { album });
+  res.render('review', { album, error: false });
 })
 
 module.exports = router;
