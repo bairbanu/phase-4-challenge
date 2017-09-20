@@ -21,7 +21,7 @@ router.route('/')
       })
   })
 
-  .post(urlEncodedParser, validateSignUpForm, isLoggedIn, (req, res) => {
+  .post(urlEncodedParser, validateSignUpForm, isLoggedIn, (req, res, next) => {
     const newUser = req.body;
     let userToDisplay;
 
