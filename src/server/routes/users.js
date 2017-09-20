@@ -5,7 +5,8 @@ const bodyParser = require('body-parser');
 const users = require('../../models/users');
 const reviews = require('../../models/reviews');
 
-const { validateSignUpForm, isLoggedIn, mayRedirectHome } = require('../middlewares/validation');
+const { validateSignUpForm, isLoggedIn } = require('../middlewares/validation');
+const { mayRedirectHome } = require('../middlewares/redirection');
 const { loginUser, createUserObjectFromSession } = require('../../models/helper-functions');
 
 const urlEncodedParser = bodyParser.urlencoded({ extended: false });

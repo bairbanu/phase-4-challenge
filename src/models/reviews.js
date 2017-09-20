@@ -15,9 +15,16 @@ function remove(reviewID, userID, req, next) {
   }
 }
 
+function create(req) {
+  const { album_id, content } = req.body;
+  const { user: { id: user_id }} = req.session;
+
+  return db.createReview(content, album_id, user_id);
+}
+
 module.exports = {
   getThreeNewest: db.getThreeNewestReviews,
-  create: db.createReview,
+  create,
   getByUserId: db.getReviewsByUserId,
   getByAlbumId: db.getReviewsByAlbumId,
   remove

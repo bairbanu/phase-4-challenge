@@ -5,8 +5,14 @@
     <title> Add Review </title>
   </head>
   <body>
-    <p>
-      This is the add review page
-    </p>
+    <h1><a href="/"> Vinyl </a></h1>
+    <h2> Add Review for <%= album.title %> </h2>
+
+    <form method="POST" action="/reviews">
+      <input type="hidden" name="album_id" value="<%= album.id %>" />
+      <textarea rows="5" cols="50" name="content" placeholder="Enter your review..."></textarea>
+      <button type="submit"> Submit </button>
+    </form>
+
   </body>
 </html>

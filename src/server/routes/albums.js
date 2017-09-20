@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const albums = require('../../models/albums');
 const reviews = require('../../models/reviews');
 const { isLoggedIn } = require('../middlewares/validation');
+const { mayRedirectHome } = require('../middlewares/redirection');
 
 const urlEncodedParser = bodyParser.urlencoded({ extended: false });
 
@@ -20,11 +21,13 @@ router.get('/:albumID', isLoggedIn, (req, res) => {
     })
 });
 
-// gets the review adding form
-router.get('/:albumID/reviews/new', urlEncodedParser, (req, res) => {
-  // get content from textarea: req.body.content
-  // save content to database -- need user id, album id, content
-  // redirect to album page using album id
+router.get('/:albumID/reviews/new', isLoggedIn, mayRedirectHome, urlEncodedParser, (req, res) => {
+  const album = {
+    title: req.query.title,
+    id: req.params.albumID
+  }
+
+  res.render('review', { album });
 })
 
 module.exports = router;

@@ -11,8 +11,8 @@ const queries = {
       LIMIT 3`)
   },
 
-  createReview: () => {
-
+  createReview: (content, album_id, user_id) => {
+    return db.none('INSERT INTO reviews (content, album_id, user_id) VALUES ($1, $2, $3)', [content, album_id, user_id])
   },
 
   getReviewsByUserId: (userID) => {
